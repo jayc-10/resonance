@@ -15,6 +15,15 @@ export default function App() {
           alt="background image"
           className="absolute left-0 h-full z-0"
         />
+        <div className="absolute top-10 right-10">
+          <p className="text-xs">pedal art credit to owners</p>
+        </div>
+        <div className="absolute bottom-10 right-10 text-right">
+          <p className="text-xs">(v1) supported !!</p>
+          <ul className="list-disc list-inside text-xs">
+            <li>acoustic</li>
+          </ul>
+        </div>
         {/* Pedals */}
         <div className="absolute flex z-10 right-1/9 top-1/7 space-x-6">
           <div className="flex flex-col items-center text-center space-y-1">
