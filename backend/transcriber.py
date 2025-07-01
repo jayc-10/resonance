@@ -27,13 +27,15 @@ def transcribe_audio(contents: bytes, filename: str) -> list:
     time, frequency, confidence, _ = crepe.predict(samples, 16000, step_size=10, viterbi=True)
 
     note_list = []
-    last_note = None
+    last_note, last_time = None, -np.inf
+    gap = 0.5       # Repeated note time frame
     step = 5         # Frame rate
     threshold = 0.8  # Confidence
 
     for i in range(0, len(frequency), step):
         pitch = frequency[i]
         conf = confidence[i]
+        t = time[i]
 
         if conf > threshold and pitch > 0:
             # (librosa) Frequency to midi to note
@@ -41,8 +43,9 @@ def transcribe_audio(contents: bytes, filename: str) -> list:
             note = librosa.midi_to_note(midi_note, octave=True)
 
             # Avoid duplicates
-            if note != last_note:
+            if note != last_note or (t - last_time > gap):
                 note_list.append(note)
                 last_note = note
+                last_time = t
 
     return note_list
