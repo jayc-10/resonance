@@ -28,7 +28,7 @@ def transcribe_audio(contents: bytes, filename: str) -> list:
 
     note_list = []
     last_note, last_time = None, -np.inf
-    gap = 0.5       # Repeated note time frame
+    gap = 0.5        # Repeated note time frame
     step = 5         # Frame rate
     threshold = 0.8  # Confidence
 

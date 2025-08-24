@@ -1,4 +1,29 @@
+import { useState } from 'react';
+
 export default function App() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    const uploadedFile = event.target.files[0];
+    setFile(uploadedFile);
+  };
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+    setFile(null);
+  };
+
+  const handleFileUpload = () => {
+    console.log('File uploaded:', file);
+    setFile(null);
+    setIsPopupOpen(false);
+  };
+  
   return (
     <div className="w-screen min-h-screen p-5 bg-beige text-dark font-mono relative">
       {/* Headings */}
@@ -31,6 +56,8 @@ export default function App() {
             <img
               src="/src/assets/images/acoustic_pedal.png"
               alt="acoustic pedal"
+              onClick={handleOpenPopup}
+              className="cursor-pointer"
             />
             <p className="text-xs">CCV yung kai</p>
           </div>
@@ -60,6 +87,46 @@ export default function App() {
           </div>
         </div>
       </div>
+      {isPopupOpen && (
+        <div className="fixed inset-0 flex justify-center items-center z-20 backdrop-blur-sm">
+          <div className="bg-beige p-10 rounded-lg w-96 space-y-4">
+            <h2 className="text-center text-l">ACOUSTIC GUITAR SAMPLE (.wav)</h2>
+            <input 
+              type="file"
+              id ="fileUpload"
+              accept=".wav,audio/wav"
+              onChange={handleFileChange}
+              className="hidden"
+            />
+            <label
+              htmlFor="fileUpload"
+              className="block w-full text-center bg-dark text-beige py-3 rounded "
+            >
+              CHOOSE FILE
+            </label>
+            {file && (
+              <div className="text-center p-2">
+                <p>selected file: {file.name}</p>
+              </div>
+            )}
+            <div className="flex justify-around">
+              <button
+                onClick={handleClosePopup}
+                className="bg-dark text-beige"
+              >
+                cancel
+              </button>
+              <button
+                onClick={handleFileUpload}
+                disabled={!file}
+                className="bg-dark text-beige"
+              >
+                upload
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Footers */}
       <div className="w-full flex justify-between pt-11">
         <h1>SUM 2025</h1>
