@@ -18,10 +18,33 @@ export default function App() {
     setFile(null);
   };
 
-  const handleFileUpload = () => {
-    console.log('File uploaded:', file);
-    setFile(null);
-    setIsPopupOpen(false);
+  const handleFileUpload = async () => {
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/upload/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Tab result from backend:', data.tab);
+      // you can show it in your UI if you want
+      alert(`Transcribed tab: ${data.tab}`);
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      alert('Failed to upload file.');
+    } finally {
+      setFile(null);
+      setIsPopupOpen(false);
+    }
   };
   
   return (
