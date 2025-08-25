@@ -14,3 +14,9 @@ backend: python + fastapi
 pydub (audio decoding), crepe (pitch detection), librosa (frequency to notes)
 
 frontend: react + vite, tailwindcss
+
+## 2&nbsp;&nbsp;: sample
+<p align="left">
+  <img src="frontend/public/main.png" alt="Main" width="49%" />
+  <img src="frontend/public/acoustic.png" alt="Acoustic" width="49%" />
+</p>
