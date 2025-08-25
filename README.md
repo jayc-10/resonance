@@ -1,3 +1,5 @@
+<img src="frontend/public/cover.png" alt="Cover" />
+
 ## 1&nbsp;&nbsp;: resonance
 summer 2025
 (context here)
