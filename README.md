@@ -30,6 +30,8 @@ Resonance is a guitar conversion tool that takes `.wav` files and transcribes th
 
 ## 3&nbsp;&nbsp;: architecture
 
+<img src=".github/assets/architecture.png" alt="Architecture" />
+
 backend: python + fastapi
 pydub (audio decoding), crepe (pitch detection), librosa (frequency to notes)
 
