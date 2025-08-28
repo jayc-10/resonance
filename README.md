@@ -19,11 +19,8 @@ Resonance is a guitar conversion tool that takes `.wav` files and transcribes th
 > - `.mp3` file support  
 > - note → TAB conversion
 
-## 2&nbsp;&nbsp;: sample
-<p align="left">
-  <img src=".github/assets/landing.png" alt="Landing" width="49%" />
-  <img src=".github/assets/demo.gif" alt="Demo" width="49%" />
-</p>
+## 2&nbsp;&nbsp;: demo
+<img src=".github/assets/demo.gif" alt="Demo" />
 
 ## 3&nbsp;&nbsp;: architecture
 
