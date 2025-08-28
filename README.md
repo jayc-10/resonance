@@ -7,7 +7,7 @@ That's when I thought: what if I made a product that could take a sound and turn
 
 Resonance is a guitar conversion tool that takes `.wav` files and transcribes them into music notes, which can then be used as tabs for learning and playing. Its been tested on acoustic guitar but was designed with future support for electric and bass in mind. Learning by ear can be frustrating; Resonance makes the process easier by bridging the gap between what you hear and what you can play.
 
-Please feel free to send feedback, I'd love to know how I can improve!
+**Please feel free to send feedback, I'd love to know how I can improve!**
 
 [![Email](https://img.shields.io/badge/Email-jayc10%40uci.edu-373B41?style=for-the-badge&labelColor=000000&logo=gmail&logoColor=white)](mailto:jayc10@uci.edu) [![LinkedIn](https://img.shields.io/badge/linkedin-Jay%20Chan-DDD7C5?style=for-the-badge&labelColor=000000)](https://www.linkedin.com/in/jayc10/)
 
