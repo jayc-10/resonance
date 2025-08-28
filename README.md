@@ -1,4 +1,4 @@
-<img src="frontend/public/cover.png" alt="Cover" />
+<img src=".github/assets/cover.png" alt="Cover" />
 
 ## 1&nbsp;&nbsp;: resonance
 The idea for *Resonance* came while I was watching keshi's [*GABRIEL*](https://www.youtube.com/watch?v=Gt_x9ifcWpM) documentary. In the background, I heard a beautiful tune that wasn't listed of any track on the album, and I couldn't find it anywhere else. I wasn't musically gifted, so I wished I could learn to play it.
@@ -21,8 +21,8 @@ Resonance is a guitar conversion tool that takes `.wav` files and transcribes th
 
 ## 2&nbsp;&nbsp;: sample
 <p align="left">
-  <img src="frontend/public/main.png" alt="Main" width="49%" />
-  <img src="frontend/public/acoustic.png" alt="Acoustic" width="49%" />
+  <img src=".github/assets/landing.png" alt="Landing" width="49%" />
+  <img src=".github/assets/demo.gif" alt="Demo" width="49%" />
 </p>
 
 ## 3&nbsp;&nbsp;: architecture
