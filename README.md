@@ -22,6 +22,12 @@ Resonance is a guitar conversion tool that takes `.wav` files and transcribes th
 ## 2&nbsp;&nbsp;: demo
 <img src=".github/assets/demo.gif" alt="Demo" />
 
+### Tutorial
+
+<hr>
+
+> Upload a short `.wav` file with clear, distinct notes being played. Wait a few seconds and the registered notes should popup! You can use these notes to create tabs for personal use. Copy or download the list of notes directly.
+
 ## 3&nbsp;&nbsp;: architecture
 
 backend: python + fastapi
