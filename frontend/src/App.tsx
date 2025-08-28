@@ -159,7 +159,7 @@ export default function App() {
         <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/40 backdrop-blur-sm">
           <div className="bg-beige text-dark w-[min(42rem,60vw)] max-h-[80vh] rounded-lg p-8">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg">Transcribed Tab</h2>
+              <h2 className="text-lg">Transcribed Notes</h2>
               <button
                 onClick={handleCloseResult}
                 className="px-3 py-1 rounded bg-dark text-beige"
@@ -169,7 +169,7 @@ export default function App() {
             </div>
             {/* RESULTS HERE */}
             <pre className="bg-dark text-beige p-4 rounded overflow-auto whitespace-pre-wrap break-words">
-{resultTab}
+{Array.isArray(resultTab) ? resultTab.join(', ') : resultTab}
             </pre>
             <div className="mt-4 flex gap-3">
               <button onClick={handleCopy} className="px-3 py-2 rounded bg-dark text-beige">
@@ -177,7 +177,7 @@ export default function App() {
               </button>
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(resultTab)}`}
-                download="transcribed-tab.txt"
+                download="notes.txt"
                 className="px-3 py-2 rounded bg-dark inline-block"
               >
                 download .txt
