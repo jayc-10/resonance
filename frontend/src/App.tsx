@@ -178,7 +178,7 @@ export default function App() {
               <a
                 href={`data:text/plain;charset=utf-8,${encodeURIComponent(resultTab)}`}
                 download="transcribed-tab.txt"
-                className="px-3 py-2 rounded bg-dark text-beige inline-block"
+                className="px-3 py-2 rounded bg-dark inline-block"
               >
                 download .txt
               </a>
