@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:8000';
+
 export default function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [file, setFile] = useState(null);
@@ -38,7 +40,7 @@ export default function App() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/upload/', {
+      const response = await fetch(`${API_BASE}/upload/`, {
         method: 'POST',
         body: formData,
       });
@@ -74,7 +76,7 @@ export default function App() {
       {/* Black Box (OMG TESTING??)*/}
       <div className="w-full h-[73vh] bg-dark text-beige flex items-center justify-center mt-4 relative">
         <img
-          src="/src/assets/images/background.png"
+          src="/images/background.png"
           alt="background image"
           className="absolute left-0 h-full z-0"
         />
@@ -92,7 +94,7 @@ export default function App() {
           <div className="flex flex-col items-center text-center space-y-1">
             <p>acoustic</p>
             <img
-              src="/src/assets/images/acoustic_pedal.png"
+              src="/images/acoustic_pedal.png"
               alt="acoustic pedal"
               onClick={handleOpenPopup}
               className="cursor-pointer"
@@ -101,17 +103,17 @@ export default function App() {
           </div>
           <div className="flex flex-col items-center text-center space-y-1 w-40">
             <p>electric</p>
-            <img src="/src/assets/images/electric_pedal.png" alt="electric pedal" />
+            <img src="/images/electric_pedal.png" alt="electric pedal" />
             <p className="text-xs">RF coalowl うるせー！ <br />reprint edition</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-1">
             <p>bass</p>
-            <img src="/src/assets/images/bass_pedal.png" alt="bass pedal" />
+            <img src="/images/bass_pedal.png" alt="bass pedal" />
             <p className="text-xs">PPDS coalowl 押せ！引け！<br />reprint edition</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-1">
             <p>more</p>
-            <img src="/src/assets/images/more_pedal.png" alt="more pedal" />
+            <img src="/images/more_pedal.png" alt="more pedal" />
             <p className="text-xs">DOMB might 日差し<br />reprint edition</p>
           </div>
         </div>

@@ -12,8 +12,10 @@ async def upload_audio(file: UploadFile = File(...)):
     return JSONResponse(content={"tab": tab})
 
 origins = [
-    "http://localhost",        # default localhost
-    "http://localhost:5173",   # Vite default
+    "http://localhost",
+    "http://localhost:5173",
+    "http://127.0.0.1",
+    "http://127.0.0.1:5173",
 ]
 
 app.add_middleware(
