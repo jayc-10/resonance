@@ -28,6 +28,32 @@ Resonance is a guitar conversion tool that takes `.wav` files and transcribes th
 
 > Upload a short `.wav` file with clear, distinct notes being played. Wait a few seconds and the registered notes should popup! Copy or download the list of notes directly.
 
+### Prerequisites
+- Python 3.10-3.12
+- Node.js 18+ and npm
+- FFmpeg
+- libsndfile
+
+### 1. Clone Repo
+```bash
+git clone https://github.com/your-username/resonance.git
+```
+### 2. Install Dependencies
+```bash
+cd backend
+pip install -r requirements.txt
+cd ../frontend
+npm install
+```
+### 3. Run Application
+```bash
+cd backend
+uvicorn main:app --reload --port 8000
+cd frontend
+npm run dev
+```
+
+Open http://localhost:5173/ in browser!
 ## 3&nbsp;&nbsp;: architecture
 
 <img src=".github/assets/architecture.png" alt="Architecture" />
