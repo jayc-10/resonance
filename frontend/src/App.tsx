@@ -1,15 +1,16 @@
 import { useState } from 'react';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:8000';
+const API_BASE = 
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? 'http://127.0.0.1:8000';
 
 export default function App() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [file, setFile] = useState(null);
-  const [isResultOpen, setIsResultOpen] = useState(false);
-  const [resultTab, setResultTab] = useState('');
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [isResultOpen, setIsResultOpen] = useState<boolean>(false);
+  const [resultTab, setResultTab] = useState<string>('');
 
-  const handleFileChange = (event) => {
-    const uploadedFile = event.target.files[0];
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const uploadedFile = event.target.files?.[0] ?? null;
     setFile(uploadedFile);
   };
 
@@ -24,6 +25,9 @@ export default function App() {
     setIsResultOpen(false);
     setResultTab('');
   };
+
+  const tabToString = (tab: string[]) =>
+    tab.length ? tab.join(', ') : 'N/A';
 
   const handleCopy = async () => {
     try {
@@ -49,9 +53,9 @@ export default function App() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data: { tab: string[] } = await response.json();
       console.log('Tab result from backend:', data.tab);
-      setResultTab(data.tab ?? '');
+      setResultTab(tabToString(data.tab));
       setIsResultOpen(true);
 
     } catch (error) {
@@ -171,7 +175,7 @@ export default function App() {
             </div>
             {/* RESULTS HERE */}
             <pre className="bg-dark text-beige p-4 rounded overflow-auto whitespace-pre-wrap break-words">
-{Array.isArray(resultTab) ? resultTab.join(', ') : resultTab}
+              {resultTab}
             </pre>
             <div className="mt-4 flex gap-3">
               <button onClick={handleCopy} className="px-3 py-2 rounded bg-dark text-beige">
