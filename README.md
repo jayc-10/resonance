@@ -31,8 +31,8 @@ Resonance is a guitar conversion tool that takes `.wav` files and transcribes th
 ### Prerequisites
 - Python 3.10-3.12
 - Node.js 18+ and npm
-- FFmpeg
 - libsndfile
+- (FFmpeg)
 
 ### 1. Clone Repo
 ```bash
