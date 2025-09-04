@@ -8,6 +8,7 @@ export default function App() {
   const [file, setFile] = useState<File | null>(null);
   const [isResultOpen, setIsResultOpen] = useState<boolean>(false);
   const [resultTab, setResultTab] = useState<string>('');
+  const [isUploading, setIsUploading] = useState<boolean>(false);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const uploadedFile = event.target.files?.[0] ?? null;
@@ -44,6 +45,7 @@ export default function App() {
     formData.append('file', file);
 
     try {
+      setIsUploading(true);
       const response = await fetch(`${API_BASE}/upload/`, {
         method: 'POST',
         body: formData,
@@ -63,6 +65,7 @@ export default function App() {
       alert('Error processing file');
 
     } finally {
+      setIsUploading(false);
       setFile(null);
       setIsPopupOpen(false);
     }
@@ -151,10 +154,16 @@ export default function App() {
               </button>
               <button
                 onClick={handleFileUpload}
-                disabled={!file}
-                className={`bg-dark text-beige px-4 py-2 rounded ${!file ? 'opacity-60' : ''}`}
+                disabled={!file || isUploading}
+                className={`bg-dark text-beige px-4 py-2 rounded ${(!file || isUploading) ? 'opacity-60' : ''}`}
               >
                 upload
+                {isUploading && (
+                  <span
+                    className="ml-2 inline-block h-3 w-3 border-2 border-beige/50 border-t-beige rounded-full animate-spin"
+                    aria-hidden
+                  />
+                )}
               </button>
             </div>
           </div>
